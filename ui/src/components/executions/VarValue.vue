@@ -2,7 +2,7 @@
     <el-button-group v-if="isFile(value)">
         <a class="el-button el-button--small el-button--primary" :href="itemUrl(value)" target="_blank">
             <Download />
-            {{ $t('download') }}
+            {{ $t('&nbsp;download') }}
         </a>
         <FilePreview v-if="value.startsWith('kestra:///')" :value="value" :execution-id="execution.id" />
         <el-button disabled size="small" type="primary" v-if="humanSize">
@@ -13,8 +13,8 @@
     <el-button-group v-else-if="isURI(value)">
         <a class="el-button el-button--small el-button--primary" :href="value" target="_blank">
             <OpenInNew />
-            {{ $t('open') }}
-        </a>        
+            {{ $t ('&nbsp;Open') }}
+        </a>
     </el-button-group>
 
     <span v-else-if="value === null">
