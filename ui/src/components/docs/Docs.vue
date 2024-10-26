@@ -184,27 +184,24 @@
             margin: calc(var(--spacer) * 2) 0;
             padding-top: 35.25%;
             background-color: var(--bs-gray-100);
-            height: 28.351rem;
             border-radius: calc($spacer / 2);
             border: 1px solid var(--bs-border-secondary-color);
+            overflow: hidden;
+            padding: calc(var(--spacer) * 1.5);
 
             @media only screen and (max-width: 1919px) {
-                padding-top: 56.25%;
                 height: auto;
                 background-color: transparent;
             }
 
             iframe {
+                aspect-ratio: 16 / 9;
                 margin: auto;
                 max-width: 43.7rem;
                 max-height: 24.351rem;
-                position: absolute;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-                width: 100%;
-                height: 100%;
+                position: relative;
+                width: 100%;       
+                display: block;
             }
         }
 
