@@ -17,6 +17,9 @@
             <inputs-form :initial-inputs="inputsList" :execution="execution" v-model="inputs" />
         </el-form>
         <template #footer>
+            <el-button @click="cancel()">
+                {{ $t('cancel') }}
+            </el-button>
             <el-button :icon="PlayBox" type="primary" @click="resumeWithInputs($refs.form)" native-type="submit">
                 {{ $t('resume') }}
             </el-button>
@@ -103,6 +106,16 @@
                     namespace: this.execution.namespace
                 });
             },
+            cancel() {
+                this.$store
+                    .dispatch("execution/kill", {
+                        id: this.execution.id,
+                    })
+                    .then(() => {
+                        this.isDrawerOpen = false;
+                        this.$toast().success(this.$t("cancel done"));
+                    });
+            }, 
         },
         computed: {
             ...mapState("auth", ["user"]),
